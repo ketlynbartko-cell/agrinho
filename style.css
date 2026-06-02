@@ -1,0 +1,153 @@
+/* ==========================================================================
+   VARIÁVEIS TOTAIS E CUSTOMIZÁVEIS (Facilidade de Configuração)
+   ========================================================================== */
+:root {
+    /* Paleta de Cores Obrigatória e Variações Tecnológicas */
+    --color-primary: #8B0000;       /* Vermelho Profundo / Geleia */
+    --color-primary-light: #B22222; /* Vermelho Vivo */
+    --color-secondary: #3E2723;     /* Marrom Terra Sólido */
+    --color-secondary-light: #5D4037; /* Marrom Suave */
+    --color-bg-light: #F9F9F9;      /* Branco Acinzentado Sustentável */
+    --color-card-light: #FFFFFF;    /* Branco Puro */
+    --color-text-light: #212121;    /* Grafite Escuro para Alto Contraste */
+
+    /* Variáveis do Modo Escuro (Futurista / Cyber-Agro) */
+    --color-bg-dark: #121212;
+    --color-card-dark: #1E1E1E;
+    --color-text-dark: #E0E0E0;
+    --color-accent-neon: #FF4D4D;
+
+    /* Configurações Globais Fluidas (Responsividade via clamp) */
+    --font-base-size: clamp(0.95rem, 0.2vw + 0.9rem, 1.15rem);
+    --font-heading-lg: clamp(2rem, 4vw + 1rem, 3.5rem);
+    --font-heading-md: clamp(1.5rem, 2.5vw + 0.8rem, 2.2rem);
+    
+    --spacing-sm: clamp(0.5rem, 1vw, 0.8rem);
+    --spacing-md: clamp(1rem, 2vw, 1.8rem);
+    --spacing-lg: clamp(2rem, 4vw, 3.5rem);
+    
+    --border-radius: 12px;
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
+    --shadow-strong: 0 15px 35px rgba(139, 0, 0, 0.15);
+    --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Configuração Padrão de Inicialização Dinâmica */
+body {
+    --bg-current: var(--color-bg-light);
+    --card-current: var(--color-card-light);
+    --text-current: var(--color-text-light);
+    
+    background-color: var(--bg-current);
+    color: var(--text-current);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-size: var(--font-base-size);
+    line-height: 1.7;
+    margin: 0;
+    padding: 0;
+    transition: var(--transition-smooth);
+}
+
+/* Ativação de Modo Escuro via Classe Injetada por JS */
+body.dark-mode {
+    --bg-current: var(--color-bg-dark);
+    --card-current: var(--color-card-dark);
+    --text-current: var(--color-text-dark);
+}
+
+/* Reset de Acessibilidade */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* ==========================================================================
+   CAIXA FLUTUANTE DE ACESSIBILIDADE (Posição: Superior Esquerda Fixa)
+   ========================================================================== */
+.accessibility-bar {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    background: var(--color-secondary);
+    padding: 8px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    display: flex;
+    gap: 8px;
+}
+
+.accessibility-bar button {
+    background: var(--color-primary);
+    color: #FFFFFF;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.85rem;
+    transition: var(--transition-smooth);
+}
+
+.accessibility-bar button:hover, 
+.accessibility-bar button:focus {
+    background: var(--color-primary-light);
+    outline: 2px solid #FFF;
+}
+
+/* ==========================================================================
+   HEADER & HERO SECTION (Visual Premium e Futurista)
+   ========================================================================== */
+.main-header {
+    background: transparent;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    z-index: 10;
+    padding: var(--spacing-md) 0;
+}
+
+.header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+    display: flex;
+    justify-content: flex-end; /* Abre espaço para a barra à esquerda */
+}
+
+.logo {
+    color: #FFFFFF;
+    font-weight: 800;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: var(--color-primary-light);
+}
+
+.hero-section {
+    position: relative;
+    min-height: 85vh;
+    background: linear-gradient(135deg, var(--color-secondary) 0%, #1a0f0d 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #FFFFFF;
+    padding: var(--spacing-lg) var(--spacing-md);
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle, rgba(139,0,0,0.2) 0%, rgba(0,0,0,0.6) 100%);
+}
+
+.hero-content {
+    position: relative;
+    max-width: 850px;
+    z-index: 2;
+}
+
+.hero-content h1 {
+    font
